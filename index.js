@@ -23,6 +23,7 @@ async function run() {
         await client.connect();
         const userCollection = client.db('ibrahimDB').collection('services');
 
+        // get item method 
         app.get('/services', async (req, res) => {
             const query = {};
             const cursor = userCollection.find(query);
@@ -30,6 +31,7 @@ async function run() {
             res.send(result)
         });
 
+        // get id method
         app.get('/services/:id', async (req, res) => {
             const id = req.params.id;
             const query = { _id: ObjectId(id) };
@@ -37,6 +39,7 @@ async function run() {
             res.send(result)
         });
         
+
         //delete method
         app.delete('/services/:id', async (req, res) => {
             const id = req.params.id;
@@ -44,6 +47,7 @@ async function run() {
             const result = await userCollection.deleteOne(query)
             res.send(result)
         });
+
 
         //delete put method
         app.put('/services/:id', async (req, res) => {
@@ -72,6 +76,7 @@ run().catch(console.dir);
 app.get('/', (req, res) => {
     res.send('hello world')
 });
+
 
 app.listen(port, () => {
     console.log(`server is sucess `)
