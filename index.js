@@ -36,7 +36,27 @@ async function run() {
             const result = await userCollection.findOne(query)
             res.send(result)
         });
+        
+        app.delete('/services/:id', async (req, res) => {
+            const id = req.params.id;
+            const query = { _id: ObjectId(id) };
+            const result = await userCollection.deleteOne(query)
+            res.send(result)
+        });
 
+        app.put('/services/:id', async (req, res) => {
+            const id = req.params.id;
+            const UPtateuser = req.body;
+            const filter = { _id: ObjectId(id) };
+            const option = { upset: true }
+            const Upsatedoc = {
+                $set: {
+                    stock: UPtateuser.stock,
+                }
+            }
+            const result = await userCollection.updateOne(filter, Upsatedoc, option);
+            res.send(result)
+        });
 
     } finally {
 
