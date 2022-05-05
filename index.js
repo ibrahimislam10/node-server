@@ -38,6 +38,19 @@ async function run() {
 
         });
 
+
+        app.get('/myitem',  async (req, res) => {
+            const email =req.query.email;
+            const query =  {email};
+            const cursor = userCollection.find(query);
+            const result = await cursor.toArray(cursor);
+            res.send(result)
+
+
+         })
+
+
+
         // get id method
         app.get('/services/:id', async (req, res) => {
             const id = req.params.id;
