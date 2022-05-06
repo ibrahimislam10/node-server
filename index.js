@@ -1,6 +1,8 @@
 
 const { MongoClient, ServerApiVersion, } = require('mongodb');
+
 require('dotenv').config()
+
 const express = require('express');
 const ObjectId = require('mongodb').ObjectId;
 require('dotenv').config()
@@ -82,6 +84,7 @@ async function run() {
 }
 
 run().catch(console.dir);
+
 app.get('/', (req, res) => {
     res.send('hello world')
 });
