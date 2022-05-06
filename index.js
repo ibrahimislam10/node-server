@@ -31,6 +31,7 @@ async function run() {
             res.send(result)
         });
 
+        // insetdata
         app.post('/services', async (req, res) => {
             const Newuser = req.body;
             const result = await userCollection.insertOne(Newuser);
