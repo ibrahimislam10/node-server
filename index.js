@@ -16,7 +16,7 @@ app.use(express.json())
 
 
 const res = require('express/lib/response');
-const uri = `mongodb+srv://${process.env.DB_NAME}:${process.env.DB_PASSWORD}@cluster0.pte2d.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
+const uri = `mongodb+srv://ibrahim:IOuq9YwKRr4gPbtV@cluster0.pte2d.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
 
 async function run() {
@@ -36,7 +36,6 @@ async function run() {
             res.send(result)
         });
 
-        
         // insetdata serversite
         app.post('/services', async (req, res) => {
             const Newuser = req.body;
@@ -58,7 +57,7 @@ async function run() {
 
 
 
-        // get id method server site
+        // get id method server sit
         app.get('/services/:id', async (req, res) => {
             const id = req.params.id;
             const query = { _id: ObjectId(id) };
