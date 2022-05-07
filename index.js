@@ -23,7 +23,7 @@ async function run() {
 
     try {
 
-        ///awite  server site   slove
+        ///awite  server site   slove here
 
         await client.connect();
         const userCollection = client.db('ibrahimDB').collection('services');
