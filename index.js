@@ -23,11 +23,12 @@ async function run() {
 
     try {
 
-        ///awite 
+        ///awite  server site 
+
         await client.connect();
         const userCollection = client.db('ibrahimDB').collection('services');
 
-        // get item method 
+        // get item method  servrt site
         app.get('/services', async (req, res) => {
             const query = {};
             const cursor = userCollection.find(query);
@@ -35,7 +36,7 @@ async function run() {
             res.send(result)
         });
 
-        // insetdata
+        // insetdata serversite
         app.post('/services', async (req, res) => {
             const Newuser = req.body;
             const result = await userCollection.insertOne(Newuser);
@@ -43,7 +44,7 @@ async function run() {
 
         });
 
-
+        //server site
         app.get('/myitem',  async (req, res) => {
             const email =req.query.email;
             const query =  {email};
@@ -56,7 +57,7 @@ async function run() {
 
 
 
-        // get id method
+        // get id method server site
         app.get('/services/:id', async (req, res) => {
             const id = req.params.id;
             const query = { _id: ObjectId(id) };
