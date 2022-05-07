@@ -16,7 +16,7 @@ app.use(express.json())
 
 
 const res = require('express/lib/response');
-const uri = `mongodb+srv://ibrahim:IOuq9YwKRr4gPbtV@cluster0.pte2d.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
+const uri = `mongodb+srv://${process.env.DB_NAME}:${process.env.DB_PASSWORD}@cluster0.pte2d.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
 
 async function run() {
