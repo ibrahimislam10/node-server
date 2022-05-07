@@ -28,7 +28,7 @@ async function run() {
         await client.connect();
         const userCollection = client.db('ibrahimDB').collection('services');
 
-        // get item method  servrt site
+        // get item method  servrt site one
         app.get('/services', async (req, res) => {
             const query = {};
             const cursor = userCollection.find(query);
